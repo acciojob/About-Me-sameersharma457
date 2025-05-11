@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
 
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .skill-bar {
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            height: 20px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            background-color: #4CAF50;
+            height: 100%;
+            width: 0%; /* Initial width, updated by JavaScript */
+            transition: width 0.5s ease-in-out;
+        }
+
+        .skill-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .icon {
+            margin-right: 5px;
+        }
+
+        img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        .badge {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <img src="placeholder-image.jpg" alt="Your Profile Picture">
+
+        <section id="name">
+            <h2>Name</h2>
+            <p id="name-content">John Doe</p>
+        </section>
+
+        <section id="email">
+            <h2>Email</h2>
+            <p id="email-content"><a href="mailto:john.doe@example.com">john.doe@example.com</a></p>
+        </section>
+
+        <section id="profile">
+            <h2>Profile</h2>
+            <p id="profile-content">Software Engineer</p>
+        </section>
+
+        <section id="about-me">
+            <h2>About me</h2>
+            <p id="about-me-content">
+                A passionate software engineer with experience in developing web applications.  I enjoy problem-solving and learning new technologies.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skill">
+                <div class="skill-label">
+                    <span><i class="fab fa-js icon"></i>JavaScript</span>
+                    <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" data-skill-level="80"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-label">
+                    <span><i class="fab fa-python icon"></i>Python <span class="badge">Beginner</span></span>
+                    <span>60%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" data-skill-level="60"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-label">
+                    <span><i class="fab fa-html5 icon"></i>HTML5</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" data-skill-level="90"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-label">
+                    <span><i class="fab fa-css3-alt icon"></i>CSS3</span>
+                    <span>75%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-level" data-skill-level="75"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Animate skill bars on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillLevels = document.querySelectorAll('.skill-level');
+            skillLevels.forEach(skillLevel => {
+                const level = skillLevel.dataset.skillLevel;
+                skillLevel.style.width = level + '%';
+            });
+        });
+    </script>
+</body>
+</html>
